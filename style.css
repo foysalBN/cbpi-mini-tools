@@ -20,7 +20,7 @@ button {
 }
 
 .selected {
-  background-color: #f94848;
+  background-color: #54aef9;
 }
 
 
@@ -32,7 +32,7 @@ button {
 
 .numbers span {
   font-family: 'Roboto Mono', 'Courier New', monospace;
-  background-color: rgb(241, 241, 241);
+  background-color: #b4ddff;
   padding: 2px 5px;
   margin: 2px;
   border-radius: 3px;
