@@ -9,6 +9,9 @@ button {
 }
 
 #action .btn {
+  /* background-color: #c3e4ff; */
+  /* color: #fff; */
+
   border: none;
   padding: 4px 13px;
   font-weight: 900;
@@ -17,7 +20,7 @@ button {
 }
 
 .selected {
-  background: #f94848;
+  background-color: #f94848;
 }
 
 

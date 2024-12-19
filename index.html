@@ -6,15 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css"> -->
   <link rel="stylesheet" href="style.css">
-  <title>Srunam Potro Helper</title>
+  <title>শিরোনাম পত্র Helper</title>
 </head>
 
 <body>
-  <h1>Hello1</h1>
-  <p>Enter Rolls:</p>
+  <h1>
+    <center>শিরোনাম পত্র</center>
+  </h1>
+  <details>
+    <summary title="Click to View or Hide Instructions"><b>View Instructions</b></summary>
+    <ol>
+      <li>Enter All Roll from Excel sheet</li>
+      <li>Click on the <b>Process</b> Button</li>
+      <li>select an action: <b>Absent</b> or <b>OMR Mistake</b></li>
+      <li>
+        <ul>
+          <li>Click on a <b>Roll</b> from Present Student List to mark it as <b>Absent</b> or <b>OMR Mistake</b></li>
+          <li>Click on a <b>Roll</b> from <b>Absent Student</b> List to remove it</li>
+          <li>click on a <b>Roll</b> from <b>OMR Mistake</b> List to remove it</li>
+        </ul>
+      </li>
+    </ol>
+  </details>
+
+
+
+  <p><b>1. Enter Rolls:</b></p>
   <textarea id="rolls" cols="70" rows="5"></textarea>
   <br>
-  <button id="process">⚙ Process</button>
+  <button id="process"><b>2. Process</b></button>
   <span id="processNotification"></span>
 
   <section class="summary">
@@ -22,9 +42,9 @@
     <p title="Click to Copy👆">Total Student :<span id="stdCount"></span></p>
 
     <div id="action">
-      <p>Select Action:
+      <p><b>3. Select Action:</b>
         <button class="btn selected" id="absent" onclick="changeAction('absent')">Absent</button>
-        <button class="btn" id="wrongOmr" onclick="changeAction('omr')">Wrong OMR</button>
+        <button class="btn" id="wrongOmr" onclick="changeAction('omr')">OMR Mistake</button>
       </p>
     </div>
 
