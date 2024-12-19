@@ -10,61 +10,73 @@
 </head>
 
 <body>
-  <h1>
-    <center>শিরোনাম পত্র</center>
-  </h1>
-  <details>
-    <summary title="Click to View or Hide Instructions"><b>View Instructions</b></summary>
-    <ol>
-      <li>Enter All Roll from Excel sheet</li>
-      <li>Click on the <b>Process</b> Button</li>
-      <li>select an action: <b>Absent</b> or <b>OMR Mistake</b></li>
-      <li>
-        <ul>
-          <li>Click on a <b>Roll</b> from Present Student List to mark it as <b>Absent</b> or <b>OMR Mistake</b></li>
-          <li>Click on a <b>Roll</b> from <b>Absent Student</b> List to remove it</li>
-          <li>click on a <b>Roll</b> from <b>OMR Mistake</b> List to remove it</li>
-        </ul>
-      </li>
-    </ol>
-  </details>
+  <main>
+    <h1>
+      <center>শিরোনাম পত্র</center>
+    </h1>
+    <details>
+      <summary title="Click to View or Hide Instructions"><b>View Instructions</b></summary>
+      <ol>
+        <li>Enter All Roll from Excel sheet</li>
+        <li>Click on the <b>Process</b> Button</li>
+        <li>select an action: <b>Absent</b> or <b>OMR Mistake</b></li>
+        <li>
+          <ul>
+            <li>Click on a <b>Roll</b> from Present Student List to mark it as <b>Absent</b> or <b>OMR Mistake</b></li>
+            <li>Click on a <b>Roll</b> from <b>Absent Student</b> List to remove it</li>
+            <li>click on a <b>Roll</b> from <b>OMR Mistake</b> List to remove it</li>
+          </ul>
+        </li>
+      </ol>
+    </details>
 
 
 
-  <p><b>1. Enter Rolls:</b></p>
-  <textarea id="rolls" cols="70" rows="5"></textarea>
-  <br>
-  <button id="process"><b>2. Process</b></button>
-  <!-- <span id="processNotification"></span> -->
-  <p>Total Student :<span id="stdCount"></span></p>
+    <p><b>1. Enter Rolls:</b></p>
+    <textarea id="rolls" cols="70" rows="5"></textarea>
+    <br>
+    <button id="process"><b>2. Process</b></button>
+    <!-- <span id="processNotification"></span> -->
+    <p>Total Student :<span id="stdCount"></span></p>
 
-  <section class="resultContainer">
+    <section class="resultContainer">
 
-    <div id="action">
-      <p><b>3. Select Action:</b>
-        <button class="btn selected" id="absent" onclick="changeAction('absent')">Absent</button>
-        <button class="btn" id="wrongOmr" onclick="changeAction('omr')">OMR Mistake</button>
+      <div id="action">
+        <p><b>3. Select Action:</b>
+          <button class="btn selected" id="absent" onclick="changeAction('absent')">Absent</button>
+          <button class="btn" id="wrongOmr" onclick="changeAction('omr')">OMR Mistake</button>
+        </p>
+      </div>
+
+      <p title="Click to Copy👆">Present Student :
+        <span id="presentCount"></span>
+        <button class="copyBtn" onclick="copyRolls('present')">Copy All Present Rolls</button>
       </p>
+      <div id="rollsContainer" class="numbers"></div>
+
+      <p title="Click to Copy👆">Absent Student :
+        <span id="absentCount"></span>
+        <button class="copyBtn" onclick="copyRolls('absent')">Copy All Absent Rolls</button>
+      </p>
+      <div id="absentRollsContainer" class="numbers"></div>
+
+      <p title="Click to Copy👆">OMR Mistake: <span id="mistakeCount"></span></p>
+      <button class="copyBtn" onclick="copyRolls('omr')">Copy All OMR Mistaken
+        Rolls</button>
+      <div id="wrongOmrRollsContainer" class="numbers"></div>
+    </section>
+
+
+
+  </main>
+
+  <footer>
+    <p>
+      Developed by <a href="https://github.com/foysalbn">Foysal Bin Nour</a>
+    <div class="contact">
     </div>
-
-    <p title="Click to Copy👆">Present Student :
-      <span id="presentCount"></span>
-      <button class="copyBtn" onclick="copyRolls('present')">Copy Present Rolls</button>
     </p>
-    <div id="rollsContainer" class="numbers"></div>
-
-    <p title="Click to Copy👆">Absent Student :
-      <span id="absentCount"></span>
-      <button class="copyBtn" onclick="copyRolls('absent')">Copy Absent Rolls</button>
-    </p>
-    <div id="absentRollsContainer" class="numbers"></div>
-
-    <p title="Click to Copy👆">OMR Mistake: <span id="mistakeCount"></span></p>
-    <button class="copyBtn" onclick="copyRolls('omr')">Copy OMR Mistaken
-      Rolls</button>
-    <div id="wrongOmrRollsContainer" class="numbers"></div>
-  </section>
-
+  </footer>
 
 
   <script src="./script.js"></script>
