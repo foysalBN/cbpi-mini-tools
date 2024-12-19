@@ -27,6 +27,20 @@ processBtn.addEventListener('click', () => {
 
 })
 
+// Handle past btn
+const pasteBtn = document.querySelector('#paste')
+pasteBtn.addEventListener('click', async () => {
+  try {
+    // Check for clipboard permissions
+    const text = await navigator.clipboard.readText();
+    rollInp.value = text
+    processBtn.click()
+  } catch (error) {
+    console.error("Failed to read clipboard contents:", error);
+    alert("Can't Access Your Clipboard")
+  }
+})
+
 // Select action
 const changeAction = (action) => {
   selectedAction = action
