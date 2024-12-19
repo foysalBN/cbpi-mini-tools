@@ -12,12 +12,19 @@ body {
 
 main {
   flex: 1;
+  max-width: 900px;
+  align-self: center;
 }
 
 body,
 button {
   /* font-family: "Montserrat", serif; */
   font-family: "Poppins", serif;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
 }
 
 button:active {
