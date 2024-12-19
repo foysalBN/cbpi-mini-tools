@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css"> -->
+  <link rel="stylesheet" href="style.css">
+  <title>Srunam Potro Helper</title>
+</head>
+
+<body>
+  <h1>Hello1</h1>
+  <p>Enter Rolls:</p>
+  <textarea id="rolls" cols="70" rows="5"></textarea>
+  <br>
+  <button id="process">⚙ Process</button>
+  <span id="processNotification"></span>
+
+  <section class="summary">
+    <h2>Summary</h2>
+    <p title="Click to Copy👆">Total Student :<span id="stdCount"></span></p>
+
+    <div id="action">
+      <p>Select Action:
+        <button class="btn selected" id="absent" onclick="changeAction('absent')">Absent</button>
+        <button class="btn" id="wrongOmr" onclick="changeAction('omr')">Wrong OMR</button>
+      </p>
+    </div>
+
+    <p title="Click to Copy👆">Present Student :<span id="presentCount"></span></p>
+    <div id="rollsContainer" class="numbers"></div>
+
+    <p title="Click to Copy👆">Absent Student :<span id="absentCount"></span></p>
+    <div id="absentRollsContainer" class="numbers"></div>
+
+    <p title="Click to Copy👆">OMR Mistake: <span id="mistakeCount"></span></p>
+    <div id="wrongOmrRollsContainer" class="numbers"></div>
+  </section>
+
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body,
+button {
+  /* font-family: "Montserrat", serif; */
+  font-family: "Poppins", serif;
+}
+
+#action .btn {
+  border: none;
+  padding: 4px 13px;
+  font-weight: 900;
+  border-radius: 5px;
+
+}
+
+.selected {
+  background: #f94848;
+}
+
+
+.numbers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.numbers span {
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  background-color: rgb(241, 241, 241);
+  padding: 2px 5px;
+  margin: 2px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.numbers span:hover {
+  background-color: rgb(255, 203, 203);
+
+}
