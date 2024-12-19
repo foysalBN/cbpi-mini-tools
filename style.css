@@ -8,6 +8,10 @@ button {
   font-family: "Poppins", serif;
 }
 
+button:active {
+  transform: scale(0.95);
+}
+
 #action .btn {
   /* background-color: #c3e4ff; */
   /* color: #fff; */
@@ -58,10 +62,15 @@ button {
   margin: 2px;
   border-radius: 3px;
   font-weight: bold;
+  min-height: 18px;
   min-width: 57px;
 }
 
 .numbers span:hover {
   background-color: rgb(255, 203, 203);
 
+}
+
+.numbers span:active {
+  transform: scale(0.95);
 }
