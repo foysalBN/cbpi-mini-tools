@@ -18,8 +18,11 @@ let selectedAction = 'absent'
 // Add event listener to the process button
 processBtn.addEventListener('click', () => {
   const rolls = rollInp.value
-  presentRolls = rolls.match(/\d{6}/g)
+  presentRolls = rolls ? rolls.match(/\d{6}/g) : []
   stdCountSpan.textContent = presentRolls.length
+  // Clear Old Values
+  absentRolls = {}
+  omrMistakeRolls = []
   updateCounts()
 
 })
@@ -95,6 +98,20 @@ const removeOmr = (roll, index) => {
 }
 
 
+const copyRolls = (type) => {
+  let content = '';
+  // let separator = '	' //tab
+  let separator = '  ' //space
+  if (type == "present") {
+    content = presentRolls.filter(roll => roll !== '').join(separator)
+  } else if (type == 'absent') {
+    content = Object.keys(absentRolls).join(separator)
+  } else {
+    content = omrMistakeRolls.join(separator)
+  }
+  navigator.clipboard.writeText(content);
+}
+
 
 
 
@@ -105,7 +122,15 @@ const removeOmr = (roll, index) => {
 // =======================================================
 // Test code to extract 4-digit roll numbers from a string
 // =======================================================
-let testRolls = `885106	885108	885109	`
+let testRolls = `885106	885108	885109	885110	885111	885112	885113	885114	885115	885116	885117	885118	885119	885120
+885121	885122	885123	885124	885125	885126	885127	885129	885130	885132	885134	885135	885136	885137
+885138	885140	885142	885143	885145	885147	885148	885149	885151	885152	885153	885154	885157	885158
+885160	885161	885162	885163	885164	885171	885172	885173	885175	885176	885177	885178	885179	885181
+885182	885185	885186	885187	789538	789571	885949 	789582	885379	885380	885382	885383	885384	885386
+885387	885390	885391	885396	885397	885398	885399	885400	885403	885404	885405	885406	885408	885409
+885410	885412	885413	885414	885415	885416	885418	885419	885420	885421	885422	885423	885424	885425
+885426	885427	885428	885429	689023	789647	789697	789557						
+`
 rollInp.value = testRolls
 processBtn.click()
 

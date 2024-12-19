@@ -36,10 +36,9 @@
   <br>
   <button id="process"><b>2. Process</b></button>
   <span id="processNotification"></span>
+  <p title="Click to Copy👆">Total Student :<span id="stdCount"></span></p>
 
-  <section class="summary">
-    <!-- <h2>Summary</h2> -->
-    <p title="Click to Copy👆">Total Student :<span id="stdCount"></span></p>
+  <section class="resultContainer">
 
     <div id="action">
       <p><b>3. Select Action:</b>
@@ -48,13 +47,21 @@
       </p>
     </div>
 
-    <p title="Click to Copy👆">Present Student :<span id="presentCount"></span></p>
+    <p title="Click to Copy👆">Present Student :
+      <span id="presentCount"></span>
+      <button class="copyBtn" onclick="copyRolls('present')">Copy Present Rolls</button>
+    </p>
     <div id="rollsContainer" class="numbers"></div>
 
-    <p title="Click to Copy👆">Absent Student :<span id="absentCount"></span></p>
+    <p title="Click to Copy👆">Absent Student :
+      <span id="absentCount"></span>
+      <button class="copyBtn" onclick="copyRolls('absent')">Copy Absent Rolls</button>
+    </p>
     <div id="absentRollsContainer" class="numbers"></div>
 
     <p title="Click to Copy👆">OMR Mistake: <span id="mistakeCount"></span></p>
+    <button class="copyBtn" onclick="copyRolls('omr')">Copy OMR Mistaken
+      Rolls</button>
     <div id="wrongOmrRollsContainer" class="numbers"></div>
   </section>
 
