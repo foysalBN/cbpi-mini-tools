@@ -163,6 +163,16 @@ searchBtn.addEventListener('click', () => {
 
 
 
+// print
+function printDiv(divId) {
+  const content = document.getElementById(divId).innerHTML; // Get the specific div's content
+  const originalContent = document.body.innerHTML; // Save the original page content
+
+  document.body.innerHTML = content; // Replace the entire page with the div's content
+  window.print(); // Open the print dialog
+  document.body.innerHTML = originalContent; // Restore the original page content
+}
+
 
 
 

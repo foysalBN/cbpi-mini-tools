@@ -131,7 +131,41 @@ button:active {
   background-color: #ff7c7c;
 }
 
+/* Printable */
+#printableDiv {
+  border: 1px solid black;
+}
 
+/*in:  8.3 x 11.7 */
+#printable {
+  width: 8.3in;
+  height: 11.7in;
+  padding: 0.25in 0.2in;
+  /* border: 1px solid black; */
+}
+
+.headerContainner p {
+  margin: 5px;
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
+
+.p-roll-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-roll-container span {
+  font-family: "Archivo Narrow", serif;
+  font-weight: bold;
+  padding: 0 4px;
+
+}
+
+
+
+/* footer */
 footer {
   margin-top: 30px;
   text-align: right;
