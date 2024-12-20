@@ -134,13 +134,17 @@ button:active {
 /* Printable */
 #printableDiv {
   border: 1px solid black;
+  width: 8.3in;
+  height: 11.7in;
 }
 
 /*in:  8.3 x 11.7 */
 #printable {
+  box-sizing: border-box;
   width: 8.3in;
   height: 11.7in;
   padding: 0.25in 0.2in;
+  padding-right: 2em;
   /* border: 1px solid black; */
 }
 
@@ -151,9 +155,21 @@ button:active {
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
 
+.col2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.col2 p {
+  margin-bottom: 5px;
+}
+
 .p-roll-container {
   display: flex;
   flex-wrap: wrap;
+  cursor: not-allowed;
+  margin-bottom: .4em;
 }
 
 .p-roll-container span {

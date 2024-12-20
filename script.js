@@ -12,7 +12,6 @@ const mistakeCountSpan = document.getElementById('mistakeCount')
 let presentRolls = [],
   absentRolls = {},
   omrMistakeRolls = []
-
 let selectedAction = 'absent'
 
 // Add event listener to the process button
@@ -24,6 +23,7 @@ processBtn.addEventListener('click', () => {
   absentRolls = {}
   omrMistakeRolls = []
   updateCounts()
+  updatePrintable()
 
 })
 
@@ -97,7 +97,7 @@ const handleRollClick = (roll, index, needUpdate = 1) => {
   }
   if (!needUpdate) return
   updateCounts()
-
+  updatePrintable()
 }
 
 const cancelAbsent = (roll, index) => {
@@ -158,7 +158,55 @@ searchBtn.addEventListener('click', () => {
   searchLogSpan.innerHTML = `${selectedAction == 'absent' ? '👇Absent: Added' : '🔴OMR Mistake Added:'} ${found ? '</br><span class="successLog">' + found + 'Found.</span>' : ''} ${notFound ? '</br><span class="errorLog">' + notFound + 'Not Found</span>' : ''}`
 
   updateCounts()
+  updatePrintable()
 })
+
+
+// Utility Functions +++++++++++++
+function convertToBanglaNumerals(number) {
+  const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  return number.toString().replace(/\d/g, digit => banglaDigits[digit]);
+}
+// ++++++++++++++++++++++++++++++++++++
+
+// Update Printable
+let pPresentRoll = document.getElementById('present-roll')
+let pAbsentRoll = document.getElementById('absent-roll')
+let pOmrRoll = document.getElementById('omr-roll')
+// Counts 
+let pPresentCountSpans = document.querySelectorAll('.p-presentCount')
+let pOmrCountSpans = document.getElementById('p-omrCount')
+let pAbsentCountSpans = document.getElementById('p-absentCount')
+
+
+let updatePrintable = () => {
+  let rollsHtml = ''
+  let absentRollsHtml = ''
+  let wrongOmrHtml = ''
+
+  // 1. Present Rolls
+  presentRolls.forEach((roll, index) => {
+    if (roll == '') return
+    rollsHtml += `<span>${roll}</span>`
+  })
+  // 2. Absent Rolls
+  for (let roll in absentRolls) {
+    absentRollsHtml += `<span>${roll}</span>`
+  }
+  // 3. OMR Mistake Rolls
+  omrMistakeRolls.forEach((roll, index) => {
+    wrongOmrHtml += `<span>${roll}</span>`
+  })
+
+  pPresentRoll.innerHTML = rollsHtml
+  pAbsentRoll.innerHTML = absentRollsHtml
+  pOmrRoll.innerHTML = wrongOmrHtml
+
+  let presentCount = convertToBanglaNumerals(presentRolls.filter(roll => roll !== '').length)
+  pPresentCountSpans.forEach(span => span.innerHTML = presentCount)
+  pOmrCountSpans.textContent = convertToBanglaNumerals(omrMistakeRolls.length)
+  pAbsentCountSpans.textContent = convertToBanglaNumerals(Object.keys(absentRolls).length)
+}
 
 
 
