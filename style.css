@@ -112,6 +112,24 @@ button:active {
   transform: scale(0.95);
 }
 
+#searchInput {
+  padding: 4px 4px;
+  width: 30em;
+}
+
+.searchlog {
+  font-size: .9em;
+}
+
+.successLog {
+  padding: 0 5px;
+  background-color: #68ff9c;
+}
+
+.errorLog {
+  padding: 0 5px;
+  background-color: #ff7c7c;
+}
 
 
 footer {
