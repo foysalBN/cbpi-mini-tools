@@ -236,7 +236,10 @@ let updatePrintable = () => {
 // =============================:print function 1 End:=============================
 // ==================================================================================
 
-// test print 2
+// =============================:print function 2 Start:============================= 
+// Issue: Create a new window
+// ==================================================================================
+
 // function printDiv(divId) {
 //   const printContent = document.getElementById(divId).innerHTML; // Get the specific div's content
 //   const printWindow = window.open('', '_blank', 'width=800,height=600'); // Open a new window for printing
@@ -264,11 +267,13 @@ let updatePrintable = () => {
 //   // Close the print window after printing
 //   printWindow.onafterprint = () => printWindow.close();
 // }
-// test print 2 end
+// =============================:print function 2 End:=============================
+// ==================================================================================
 
 
 
-// test print 3
+// =============================:print function 3 Start:============================= 
+// ==================================================================================
 function printDiv(divId) {
   const content = document.getElementById(divId); // The specific div
   const allContent = document.body.querySelector('main').children; // All content in the body
@@ -292,7 +297,8 @@ function printDiv(divId) {
   document.body.querySelector('footer').style.display = '';
   document.querySelector('#hidePrintAreaBorder').id = 'printableDiv'
 }
-// test print 3 end
+// =============================:print function 3 End:=============================
+// ==================================================================================
 
 
 
