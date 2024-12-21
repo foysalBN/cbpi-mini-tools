@@ -17,7 +17,9 @@ let selectedAction = 'absent'
 // Add event listener to the process button
 processBtn.addEventListener('click', () => {
   const rolls = rollInp.value
-  presentRolls = rolls ? rolls.match(/\d{6}/g) : []
+  let rollsArr = rolls.match(/\d{6}/g)
+  if (!rollsArr) return alert("Enter Valid 6 digit Roll Numbers separated with space or comma")
+  presentRolls = rolls.match(/\d{6}/g)
   stdCountSpan.textContent = presentRolls.length
   // Clear Old Values
   absentRolls = {}

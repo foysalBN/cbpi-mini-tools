@@ -168,6 +168,7 @@ button:active {
 
 .col2 p {
   margin-bottom: 5px;
+  margin-top: 0;
 }
 
 .p-roll-container {
@@ -188,6 +189,11 @@ button:active {
 
 #present-roll {
   min-height: 13em;
+}
+
+#omr-roll,
+#absent-roll {
+  min-height: 33px;
 }
 
 
