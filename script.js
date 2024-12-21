@@ -105,10 +105,12 @@ const cancelAbsent = (roll, index) => {
   presentRolls[index] = roll
   delete absentRolls[roll]
   updateCounts()
+  updatePrintable()
 }
 
 const removeOmr = (roll, index) => {
   omrMistakeRolls.splice(index, 1)
+  updateCounts()
   updateCounts()
 }
 

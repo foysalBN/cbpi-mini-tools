@@ -153,6 +153,11 @@ button:active {
   text-align: center;
 }
 
+#printableDiv .edit {
+  border: 1px solid black;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
 
 .col2 {
@@ -167,6 +172,7 @@ button:active {
 
 .p-roll-container {
   display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
   cursor: not-allowed;
   margin-bottom: .4em;
@@ -175,8 +181,13 @@ button:active {
 .p-roll-container span {
   font-family: "Archivo Narrow", serif;
   font-weight: bold;
-  padding: 0 4px;
+  font-size: 10.5pt;
+  padding: 0;
+  width: 3.5em;
+}
 
+#present-roll {
+  min-height: 13em;
 }
 
 
