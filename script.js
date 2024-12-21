@@ -19,7 +19,8 @@ processBtn.addEventListener('click', () => {
   const rolls = rollInp.value
   let rollsArr = rolls.match(/\d{6}/g)
   if (!rollsArr) return alert("Enter Valid 6 digit Roll Numbers separated with space or comma")
-  presentRolls = rolls.match(/\d{6}/g)
+  let sortedRolls = rollsArr.sort((a, b) => Number(a) - Number(b))
+  presentRolls = sortedRolls
   stdCountSpan.textContent = presentRolls.length
   // Clear Old Values
   absentRolls = {}
@@ -92,10 +93,11 @@ const handleRollClick = (roll, index, needUpdate = 1) => {
   if (selectedAction == 'absent') {
     presentRolls[index] = ''
     absentRolls[roll] = index
-
   }
   else {
-    if (!omrMistakeRolls.includes(roll)) omrMistakeRolls.push(roll)
+    if (!omrMistakeRolls.includes(roll)) {
+      omrMistakeRolls = [...new Set([...omrMistakeRolls, roll])].sort((a, b) => Number(a) - Number(b))
+    }
   }
   if (!needUpdate) return
   updateCounts()
