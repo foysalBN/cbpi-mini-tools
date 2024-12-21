@@ -221,16 +221,78 @@ let updatePrintable = () => {
 
 
 
-// print
+// =============================:print function 1 Start:============================= 
+// Issue: None of the button works after clicking on the print button
+// Possible Solution: Add Script again after print
+// ==================================================================================
+// function printDiv(divId) {
+//   const content = document.getElementById(divId).innerHTML; // Get the specific div's content
+//   const originalContent = document.body.innerHTML; // Save the original page content
+
+//   document.body.innerHTML = content; // Replace the entire page with the div's content
+//   window.print(); // Open the print dialog
+//   document.body.innerHTML = originalContent; // Restore the original page content
+// }
+// =============================:print function 1 End:=============================
+// ==================================================================================
+
+// test print 2
+// function printDiv(divId) {
+//   const printContent = document.getElementById(divId).innerHTML; // Get the specific div's content
+//   const printWindow = window.open('', '_blank', 'width=800,height=600'); // Open a new window for printing
+
+//   // Write the content to the new window
+//   printWindow.document.open();
+//   printWindow.document.write(`
+//     <!DOCTYPE html>
+//     <html lang="en">
+//       <head>
+//         <meta charset="UTF-8">
+//         <link rel="stylesheet" href="style.css">
+//         <title>শিরোনাম পত্র Helper</title>
+//       </head>
+//       <body>
+//         ${printContent}
+//       </body>
+//     </html>
+//   `);
+//   printWindow.document.close();
+
+//   // Trigger the print dialog
+//   printWindow.print();
+
+//   // Close the print window after printing
+//   printWindow.onafterprint = () => printWindow.close();
+// }
+// test print 2 end
+
+
+
+// test print 3
 function printDiv(divId) {
-  const content = document.getElementById(divId).innerHTML; // Get the specific div's content
-  const originalContent = document.body.innerHTML; // Save the original page content
+  const content = document.getElementById(divId); // The specific div
+  const allContent = document.body.querySelector('main').children; // All content in the body
 
-  document.body.innerHTML = content; // Replace the entire page with the div's content
+  // Temporarily hide everything except the target div
+  for (let i = 0; i < allContent.length; i++) {
+    if (allContent[i] !== content) {
+      allContent[i].style.display = 'none';
+    }
+  }
+  // Also Hide footer
+  document.body.querySelector('footer').style.display = 'none';
+  document.querySelector('#printableDiv').id = 'hidePrintAreaBorder'
+
   window.print(); // Open the print dialog
-  document.body.innerHTML = originalContent; // Restore the original page content
-}
 
+  // Restore the original display for all content
+  for (let i = 0; i < allContent.length; i++) {
+    allContent[i].style.display = ''; // Reset the display style
+  }
+  document.body.querySelector('footer').style.display = '';
+  document.querySelector('#hidePrintAreaBorder').id = 'printableDiv'
+}
+// test print 3 end
 
 
 
