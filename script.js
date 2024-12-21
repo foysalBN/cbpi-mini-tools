@@ -91,13 +91,14 @@ const handleRollClick = (roll, index, needUpdate = 1) => {
   if (roll == '') return;
 
   if (selectedAction == 'absent') {
-    presentRolls[index] = ''
+    if (absentRolls[roll] !== undefined) return alert('⚠ "' + roll + '" is already marked as Absent.')
+    if (omrMistakeRolls.includes(roll)) return alert('⚠ "' + roll + '" is already marked as OMR mistake.')
+    presentRolls[index] = '' // Make it Blank in Present Rolls
     absentRolls[roll] = index
   }
   else {
-    if (!omrMistakeRolls.includes(roll)) {
-      omrMistakeRolls = [...new Set([...omrMistakeRolls, roll])].sort((a, b) => Number(a) - Number(b))
-    }
+    if (omrMistakeRolls.includes(roll)) return alert('⚠ "' + roll + '" is already marked as OMR mistake')
+    omrMistakeRolls = [...new Set([...omrMistakeRolls, roll])].sort((a, b) => Number(a) - Number(b))
   }
   if (!needUpdate) return
   updateCounts()
@@ -147,13 +148,16 @@ searchBtn.addEventListener('click', () => {
   let found = notFound = alreadyAdded = ''
 
   searchRollArr.forEach(roll => {
-    let index = presentRolls.indexOf(roll)
-    if (index !== -1) { //if valid
-      handleRollClick(roll, index, 0)
-      found += roll + ' '
-    } else { //if not valid
-      notFound += roll + ' '
-    }
+    let presentIndex = presentRolls.indexOf(roll)
+
+    // Invalid: not in presentRolls or absentRolls
+    if (presentIndex == -1 && absentRolls[roll] == undefined) return notFound += roll + ' '
+    // Valid Roll
+    handleRollClick(roll, presentIndex, 0)
+
+    if (selectedAction == 'absent' && absentRolls[roll] !== undefined) return // Already Marked as Absent
+    else if (selectedAction == 'omr' && omrMistakeRolls.includes(roll)) return // Already Marked as OMR Mistake
+    found += roll + ' '
   })
 
   if (notFound != '') {
@@ -161,7 +165,7 @@ searchBtn.addEventListener('click', () => {
   } else {
     searchInp.value = notFound
   }
-  searchLogSpan.innerHTML = `${selectedAction == 'absent' ? '👇Absent: Added' : '🔴OMR Mistake Added:'} ${found ? '</br><span class="successLog">' + found + 'Found.</span>' : ''} ${notFound ? '</br><span class="errorLog">' + notFound + 'Not Found</span>' : ''}`
+  searchLogSpan.innerHTML = `${selectedAction == 'absent' ? '👇Absent:' : '🔴OMR Mistake:'} ${found ? '</br><span class="successLog">' + found + 'Found.</span>' : ''} ${notFound ? '</br><span class="errorLog">' + notFound + 'Not Found</span>' : ''}`
 
   updateCounts()
   updatePrintable()
