@@ -222,6 +222,9 @@ button:active {
   margin-top: 0;
 }
 
+.w-50 {
+  width: 50%;
+}
 
 .resizable {
   resize: vertical;
