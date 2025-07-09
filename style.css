@@ -171,7 +171,16 @@ button:active {
   margin-top: 0;
 }
 
+
+.resizable {
+  resize: vertical;
+  /* makes it resizable */
+  overflow: auto;
+  /* required for resize to work */
+}
+
 .p-roll-container {
+  min-height: 5em;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
@@ -179,6 +188,7 @@ button:active {
   margin-bottom: .4em;
 }
 
+/* Actual Roll that will add by JS */
 .p-roll-container span {
   font-family: "Archivo Narrow", serif;
   font-weight: bold;
@@ -187,9 +197,6 @@ button:active {
   width: 3.5em;
 }
 
-#present-roll {
-  min-height: 13em;
-}
 
 #omr-roll,
 #absent-roll {
