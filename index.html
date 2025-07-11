@@ -39,8 +39,18 @@
     </details>
 
     <section class="controles">
-      <p style="display: flex; flex-direction: row; justify-content: space-between;"><b>1. Enter Rolls:</b> <button
-          id="paste">Clear, Paste and Process</button></p>
+      <p style="display: flex; flex-direction: row; justify-content: space-between;">
+        <b>1. Enter Rolls:</b>
+        <button id="paste">Clear, Paste and Process</button>
+      </p>
+
+      <div>
+        <span>Digit Per Roll:</span>
+        <input type="number" id="digit-inp" placeholder="Enter Digit Count">
+        <button id="save-digit" class="btn selected">Save</button>
+        <p style="margin-top: 0em;font-size: .9em; background: yellow;">eg: Roll-123456 👈 6 Digit</p>
+      </div>
+
       <textarea id="rolls" rows="5"></textarea>
       <br>
       <button id="process"><b>2. Process</b></button>
@@ -174,13 +184,13 @@
 
 
 
-  <footer>
+  <!-- <footer>
     <p>
       Developed by <a href="https://github.com/foysalbn">Foysal Bin Nour</a>
     <div class="contact">
     </div>
     </p>
-  </footer>
+  </footer> -->
 
 
   <script src="./script.js"></script>

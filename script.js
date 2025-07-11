@@ -1,3 +1,7 @@
+const digitInp = document.querySelector('#digit-inp')
+const saveDigit = document.querySelector('#save-digit')
+
+
 // Get the input field and process button elements
 const rollInp = document.querySelector('#rolls')
 const processBtn = document.querySelector('#process')
@@ -9,16 +13,35 @@ const absentCountSpan = document.getElementById('absentCount')
 const mistakeCountSpan = document.getElementById('mistakeCount')
 
 // Global Vars
-let presentRolls = [],
+let digit = localStorage.getItem('roll-digit') || 6,
+  presentRolls = [],
   absentRolls = {},
   omrMistakeRolls = []
 let selectedAction = 'absent'
 
+
+// Save Roll Digit in localStorage
+saveDigit.addEventListener('click', () => {
+  const digitValue = digitInp.value
+  localStorage.setItem('roll-digit', digitValue)
+  digit = digitValue; // Update the global digit variable
+})
+// Retrieve Roll from localstorage
+window.addEventListener('load', () => {
+  digitInp.value = digit
+})
+
+
+
 // Add event listener to the process button
 processBtn.addEventListener('click', () => {
   const rolls = rollInp.value
-  let rollsArr = rolls.match(/\d{6}/g)
-  if (!rollsArr) return alert("Enter Valid 6 digit Roll Numbers separated with space or comma")
+
+  const regex = new RegExp(`\\d{${digit}}`, 'g');
+  let rollsArr = rolls.match(regex);
+
+
+  if (!rollsArr) return alert(`Enter Valid ${digit} digit Roll Numbers separated with space or comma`)
   let sortedRolls = rollsArr.sort((a, b) => Number(a) - Number(b))
   presentRolls = sortedRolls
   stdCountSpan.textContent = presentRolls.length
