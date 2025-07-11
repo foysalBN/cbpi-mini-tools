@@ -308,7 +308,7 @@ function printDiv(divId) {
     }
   }
   // Also Hide footer
-  document.body.querySelector('footer').style.display = 'none';
+  // document.body.querySelector('footer').style.display = 'none';
   document.querySelector('#printableDiv').id = 'hidePrintAreaBorder'
 
   window.print(); // Open the print dialog
@@ -317,7 +317,7 @@ function printDiv(divId) {
   for (let i = 0; i < allContent.length; i++) {
     allContent[i].style.display = ''; // Reset the display style
   }
-  document.body.querySelector('footer').style.display = '';
+  // document.body.querySelector('footer').style.display = '';
   document.querySelector('#hidePrintAreaBorder').id = 'printableDiv'
 }
 // =============================:print function 3 End:=============================
