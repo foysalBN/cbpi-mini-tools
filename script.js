@@ -31,6 +31,29 @@ window.addEventListener('load', () => {
   digitInp.value = digit
 })
 
+// ================== set dateTime start ==================
+const convertToBengaliDigits = (num) => {
+  const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  return num.toString().padStart(2, '0').replace(/\d/g, d => bnDigits[d]);
+};
+
+const getBengaliDateString = (date = new Date()) => {
+  const weekdays = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'];
+
+  const day = convertToBengaliDigits(date.getDate());
+  const month = convertToBengaliDigits(date.getMonth() + 1); // Months are 0-indexed
+  const year = convertToBengaliDigits(date.getFullYear());
+  const weekday = weekdays[date.getDay()];
+
+  return `${day}/${month}/${year} ${weekday}`;
+};
+
+const dateStr = getBengaliDateString();
+console.log(dateStr); // Output: "১৫/১২/২০২৪ রবিবার"
+document.getElementById('datetime').textContent = `${dateStr}  সকাল ১০.০০`;
+// ================== set dateTime End ==================
+
+
 
 
 // Add event listener to the process button
