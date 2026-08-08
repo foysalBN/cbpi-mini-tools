@@ -49,7 +49,7 @@ const getBengaliDateString = (date = new Date()) => {
 };
 
 const dateStr = getBengaliDateString();
-console.log(dateStr); // Output: "১৫/১২/২০২৪ রবিবার"
+// console.log(dateStr); // Output: "১৫/১২/২০২৪ রবিবার"
 document.getElementById('datetime').textContent = `${dateStr}  সকাল ১০.০০`;
 // ================== set dateTime End ==================
 
