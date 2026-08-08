@@ -346,6 +346,13 @@ function printDiv(divId) {
 // =============================:print function 3 End:=============================
 // ==================================================================================
 
+// trigger print dialog on Ctrl+P
+document.addEventListener('keydown', function (event) {
+  if (event.ctrlKey && event.key === 'p') {
+    event.preventDefault(); // Prevent the default print dialog
+    printDiv('printableDiv'); // Call the custom print function
+  }
+});
 
 
 

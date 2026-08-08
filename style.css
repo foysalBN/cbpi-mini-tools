@@ -123,6 +123,13 @@ button:active {
   color: white;
 }
 
+.shadow {
+  background-color: #ffffff;
+  color: black;
+  /* border: solid; */
+  box-shadow: 3px 2px 6px 5px #0000004d;
+}
+
 .resultContainer p {
   border-top: 1px solid #54aff92c;
   padding-top: 10px;
